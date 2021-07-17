@@ -32,15 +32,20 @@ class Greeting {
     private String message;
 }
 
-@RequestMapping("/greet")
+
 @RestController
 @RequiredArgsConstructor
 class GreetingController {
     private final Greeting greeting;
 
-    @GetMapping
-    String getGreeting(@RequestParam(value = "name", defaultValue = "Mani") String name) {
+    @GetMapping("/greet")
+    String greet(@RequestParam(value = "name", defaultValue = "Mani") String name) {
         return String.format("<p>%s, %s</p>", greeting.getMessage(), name);
+    }
+
+    @GetMapping("/")
+    String ping() {
+        return "Yes its working. Try /greet?name=you";
     }
 }
 
