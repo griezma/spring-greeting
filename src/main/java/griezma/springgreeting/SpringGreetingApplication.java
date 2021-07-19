@@ -32,7 +32,6 @@ class Greeting {
     private String message;
 }
 
-
 @RestController
 @RequiredArgsConstructor
 class GreetingController {
@@ -40,12 +39,12 @@ class GreetingController {
 
     @GetMapping("/greet")
     String greet(@RequestParam(value = "name", defaultValue = "Mani") String name) {
-        return String.format("<p>%s, %s</p>", greeting.getMessage(), name);
+        return String.format("%s, %s (%d)", greeting.getMessage(), name, 42);
     }
 
     @GetMapping("/")
     String ping() {
-        return "Yes its working. Try /greet?name=you";
+        return "It works";
     }
 }
 

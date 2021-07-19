@@ -1,14 +1,24 @@
 # Spring Boot Greet app
 
-Minimalistic sample for exploring openshift, k8n etc deployments
+Mini app for playing with cloud platforms
 
+Image with JIB
 ```
-# JIB
 mvn clean package jib:build -Pjib -DskipTests 
 ```
 
-
+Deploy to Openshift with JKube
 ```
-# JKube Openshift
 mvn clean package oc:resource oc:build oc:deploy -Pjkube -DskipTests 
+```
+
+Start locally
+```
+docker-compose up
+```
+
+Rebuild and Redeploy
+```
+docker-compose down
+docker-compose up --build
 ```
